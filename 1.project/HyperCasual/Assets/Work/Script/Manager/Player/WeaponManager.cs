@@ -8,6 +8,13 @@ public class WeaponManager : BaseMonoManager
 {
     public ReactiveCollection<Weapon> Weapons => _weaponActors;
     public MouseCommand MouseCommand => _mouseCommand;
+    public bool IsFire
+    {
+        set
+        {
+            _isFire.Value = value;
+        }
+    }
 
 
     [SerializeField] private Transform _shotTransform = default;
@@ -19,8 +26,9 @@ public class WeaponManager : BaseMonoManager
     private WeaponParam _param = new WeaponParam();
     private WeaponSpawner _spawner = new WeaponSpawner();
 
-    //マウス入力
+    //マウス入力(UI処理から入る)
     private MouseCommand _mouseCommand = default;
+    private BoolReactiveProperty _isFire = new BoolReactiveProperty(false);
 
     public override void InitializeStart(LevelSetting levelSetting)
     {
@@ -39,12 +47,11 @@ public class WeaponManager : BaseMonoManager
         base.SubscribeStart();
 
         //発射
-        _mouseCommand.IsPush
+        _isFire
             .Subscribe(flag =>
             {
                 if (flag)
                 {
-                    Debug.Log("発射");
                     Fire();
                 }
             })
@@ -75,5 +82,6 @@ public class WeaponManager : BaseMonoManager
             weapon.Fire(_shotTransform);
             await UniTask.Delay(TimeSpan.FromSeconds(_levelSetting._playersInfo._weaponIntervalSecond));
         }
+        _isFire.Value = false;
     }
 }

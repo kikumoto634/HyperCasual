@@ -1,11 +1,19 @@
+using UniRx;
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 public class WeaponUIManager : BaseMonoManager
 {
     [SerializeField] private PlayerManager _playerManager = default;
     [SerializeField] private GameObject _weaponUILocations = default;
     [SerializeField] private GameObject _weaponUICollect = default;
+
+    [SerializeField] private GameObject _pipeEnter = default;
+    [SerializeField] private GameObject _pipeExit = default;
+    [SerializeField] private GameObject _playerCanon = default;
+
 
     //武器アイコンの位置
     private List<RectTransform> _iconLocations = new List<RectTransform>();
@@ -36,6 +44,14 @@ public class WeaponUIManager : BaseMonoManager
     public override void SubscribeStart()
     {
         base.SubscribeStart();
+
+        //移動開始
+        _playerManager.WeaponManager.MouseCommand.IsPush
+            .Subscribe(flag =>
+            {
+                if(flag)MovementStart();
+            })
+            .AddTo(this);
     }
     public override void UpdateProcess()
     {
@@ -64,6 +80,34 @@ public class WeaponUIManager : BaseMonoManager
         {
             ui.transform.position = _iconLocations[index].transform.position;
             index++;
+        }
+    }
+
+    //移動開始
+    public void MovementStart()
+    {
+        float index = 0;    //index
+        int completeIndex = 0;
+        foreach (var ui in _weaponUIs)
+        {
+            index++;
+            var sequence = DOTween.Sequence();
+            sequence.Append(ui.transform.DOMoveY(_pipeEnter.transform.position.y, 1.0f))
+                .SetDelay(index * _levelSetting._playersInfo._weaponUIIntervalSecond);
+            sequence.Append(ui.transform.DOMoveX(_pipeEnter.transform.position.x, 1.0f));
+            sequence.Append(ui.transform.DOMoveY(_pipeExit.transform.position.y, 1.0f));
+            sequence.Append(ui.transform.DOMoveX(_playerCanon.transform.position.x, 1.0f))
+                .OnComplete(() =>
+                {
+                    completeIndex++;
+                    if (completeIndex == _weaponUIs.Count)
+                    {
+                        _playerManager.WeaponManager.IsFire = true;
+                        RePosition();
+                    }
+                });
+
+            sequence.Play();
         }
     }
 }

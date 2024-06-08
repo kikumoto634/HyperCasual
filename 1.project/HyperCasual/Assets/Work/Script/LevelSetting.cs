@@ -19,4 +19,5 @@ public struct PlayersInfo
     [BoxGroup("Weapon"), Range(0.0f, 0.5f)] public float _weaponIntervalSecond;
 
     [BoxGroup("WeaponUI")] public WeaponUI _weaponUIPrefab;
+    [BoxGroup("WeaponUI"), Range(0.0f, 1.0f)] public float _weaponUIIntervalSecond;
 }
