@@ -1,25 +1,28 @@
 using UnityEngine;
 using UniRx;
 
-public class CanonParam
+public class CanonParam : ActorParam
 {
     public float Velocity { get; set; }
 }
 
 public class CanonActor : Actor
 {
+    public MousePositionCommand MousePosition => _mouse;
+
+
     //パラメーター
     private CanonParam _canonParam = new CanonParam();
 
     //マウス
-    public MousePositionCommand _mouse = default;
+    private MousePositionCommand _mouse = default;
 
-    public override void InitializeStart() 
+    public override void InitializeStart(LevelSetting levelSetting) 
     {
         base.InitializeStart();
 
         //Scriptableから取得
-        _canonParam.Velocity = 10;
+        _canonParam.Velocity = levelSetting._playersInfo._playerVelocity;
 
         _mouse = new MousePositionCommand();
     }
@@ -28,6 +31,7 @@ public class CanonActor : Actor
         _mouse._mousePosition
             .Subscribe(pos =>
             {
+                //Debug.Log(pos);
                 var worldPoint = Camera.main.ScreenToWorldPoint(pos);
                 worldPoint.z = 0f;
                 transform.up = Vector3.MoveTowards(

@@ -8,6 +8,5 @@ public class LevelManager : MonoBehaviour
     {
         _stateManager.LevelStart();
         _stateManager.LevelRun();
-        _stateManager.LevelFinalize();
     }
 }

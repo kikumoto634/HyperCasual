@@ -11,7 +11,7 @@ public class InputActor : Actor
 {
     public InputCommand _input = default;
 
-    public override void InitializeStart()
+    public override void InitializeStart(LevelSetting levelSetting)
     {
         base.InitializeStart();
 

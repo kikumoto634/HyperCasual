@@ -1,9 +1,7 @@
-
-using Mono.Cecil.Cil;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Rendering;
+
 
 public class InputManager : BaseManager
 {
@@ -12,15 +10,11 @@ public class InputManager : BaseManager
 
     //マウス
     public List<MousePositionCommand> _mousePositionCommand = new List<MousePositionCommand>();
+    public List<MouseCommand> _mouseCommand = new List<MouseCommand>();
 
-    public override void InitializeStart()
+    public override void InitializeStart(LevelSetting levelSetting)
     {
-        base.InitializeStart();
-    }
-
-    public override void SubscribeStart()
-    {
-        base.SubscribeStart();
+        base.InitializeStart(levelSetting);
     }
 
     public override void UpdateProcess()
@@ -38,11 +32,16 @@ public class InputManager : BaseManager
         {
             command.MouawPointer();
         }
+        foreach (var command in _mouseCommand)
+        {
+            command.Push();
+        }
     }
 
     public override void FinalizeStart()
     {
         base.FinalizeStart();
+        _inputCommands.Clear();
     }
 }
 
@@ -65,7 +64,7 @@ public class InputCommand
     }
 }
 
-//入力コマンド
+//入力座標
 public class MousePositionCommand
 {
     public ReactiveProperty<Vector2> _mousePosition = new ReactiveProperty<Vector2>();
@@ -78,5 +77,23 @@ public class MousePositionCommand
     public void MouawPointer()
     {
         _mousePosition.Value = Input.mousePosition;
+    }
+}
+
+//マウスコマンド
+public class MouseCommand
+{
+    private int _code = default;
+    public BoolReactiveProperty IsPush { get; set; }
+
+    public MouseCommand(int code)
+    {
+        _code = code;
+        IsPush = new BoolReactiveProperty(false);
+    }
+
+    public void Push()
+    {
+        IsPush.Value = Input.GetMouseButton(_code);
     }
 }
