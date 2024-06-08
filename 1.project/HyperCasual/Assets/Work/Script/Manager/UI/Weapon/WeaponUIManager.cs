@@ -46,7 +46,7 @@ public class WeaponUIManager : BaseMonoManager
         base.SubscribeStart();
 
         //ˆÚ“®ŠJŽn
-        _playerManager.WeaponManager.MouseCommand.IsPush
+        _playerManager.WeaponManager.IsAttack
             .Subscribe(flag =>
             {
                 if(flag)MovementStart();

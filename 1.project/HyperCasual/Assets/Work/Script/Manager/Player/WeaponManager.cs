@@ -1,13 +1,25 @@
 using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UniRx;
 using UnityEngine;
 
 public class WeaponManager : BaseMonoManager
 {
     public ReactiveCollection<Weapon> Weapons => _weaponActors;
-    public MouseCommand MouseCommand => _mouseCommand;
+    public BoolReactiveProperty IsAttack
+    {
+        get
+        {
+            return _isAttack;
+        }
+        set
+        {
+            _isAttack = value;
+        }
+    }
+    public BoolReactiveProperty IsMoveComp => _isMoveComp;
     public bool IsFire
     {
         set
@@ -26,15 +38,15 @@ public class WeaponManager : BaseMonoManager
     private WeaponParam _param = new WeaponParam();
     private WeaponSpawner _spawner = new WeaponSpawner();
 
-    //マウス入力(UI処理から入る)
-    private MouseCommand _mouseCommand = default;
+ 
+    //行動
+    private BoolReactiveProperty _isAttack = new BoolReactiveProperty(false);
     private BoolReactiveProperty _isFire = new BoolReactiveProperty(false);
+    private BoolReactiveProperty _isMoveComp = new BoolReactiveProperty(false);
 
     public override void InitializeStart(LevelSetting levelSetting)
     {
         base.InitializeStart(levelSetting);
-
-        _mouseCommand = new MouseCommand(0);
 
         //初期個数
         for (int i = 0; i < levelSetting._playersInfo._initWeaponNum; i++) 
@@ -52,6 +64,7 @@ public class WeaponManager : BaseMonoManager
             {
                 if (flag)
                 {
+                    Debug.Log("発射");
                     Fire();
                 }
             })
@@ -60,6 +73,13 @@ public class WeaponManager : BaseMonoManager
     public override void UpdateProcess()
     {
         base.UpdateProcess();
+
+        //攻撃中
+        if (_isFire.Value && _weaponActors.All(actor => !actor.IsActive.Value))
+        {
+            Debug.Log("攻撃終了");
+            _isMoveComp.Value = true;
+        }
     }
     public override void FinalizeStart()
     {
@@ -82,6 +102,12 @@ public class WeaponManager : BaseMonoManager
             weapon.Fire(_shotTransform);
             await UniTask.Delay(TimeSpan.FromSeconds(_levelSetting._playersInfo._weaponIntervalSecond));
         }
+    }
+
+    public void MoveEnd()
+    {
+        _isAttack.Value = false;
         _isFire.Value = false;
+        _isMoveComp.Value = false;
     }
 }

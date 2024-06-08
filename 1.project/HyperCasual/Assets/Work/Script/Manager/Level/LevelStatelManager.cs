@@ -11,6 +11,7 @@ using UnityEngine;
 public enum StageState
 {
     CononFire,
+    WeaponMove,
     EnemyMove
 }
 
@@ -28,6 +29,8 @@ public class LevelStatelManager : MonoBehaviour
     [SerializeField] private PlayerManager _playerManager = default;
     [SerializeField] private UIManager _uiManager = default;
 
+    private StageState _stageState = StageState.CononFire;
+
     public void LevelStart()
     {
         _gameLoop = true;
@@ -39,7 +42,6 @@ public class LevelStatelManager : MonoBehaviour
         //MonoManager
         _playerManager.InitializeStart(_levelSetting);
         _inputManager._mousePositionCommand.Add(_playerManager.CanonActor.MousePosition);
-        _inputManager._mouseCommand.Add(_playerManager.WeaponManager.MouseCommand);
 
         _uiManager.InitializeStart(_levelSetting);
     }
@@ -55,6 +57,36 @@ public class LevelStatelManager : MonoBehaviour
             .Where(_ => _gameLoop)
             .Subscribe(_ =>
             {
+                switch (_stageState)
+                {
+                    case StageState.CononFire:
+
+                        Debug.Log("発射シーン");
+                        //弾発射
+                        _playerManager.WeaponManager.IsAttack.Value = true;
+
+                        _stageState = StageState.WeaponMove;
+                        break;
+
+                    case StageState.WeaponMove:
+
+                        Debug.Log("武器移動シーン");
+                        _playerManager.WeaponManager.IsMoveComp
+                            .Where(flag => flag)
+                            .Subscribe(_ =>
+                            {
+                                _playerManager.WeaponManager.MoveEnd();
+                                _stageState = StageState.EnemyMove;
+                            })
+                            .AddTo(this);
+
+                        break;
+
+                    case StageState.EnemyMove:
+                        _stageState = StageState.CononFire;
+                        break;
+                }
+
                 //アクター
                 _inputManager.UpdateProcess();
                 _playerManager.UpdateProcess();
