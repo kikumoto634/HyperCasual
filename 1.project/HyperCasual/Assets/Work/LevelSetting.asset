@@ -21,3 +21,6 @@ MonoBehaviour:
     _initWeaponNum: 4
     _weaponVelocity: 20
     _weaponIntervalSecond: 0.05
+    _weaponUIPrefab: {fileID: 7732935956470602516, guid: 921eb1e7eda97a540a0e812a504fd370,
+      type: 3}
+    _weaponUIIntervalSecond: 0.5

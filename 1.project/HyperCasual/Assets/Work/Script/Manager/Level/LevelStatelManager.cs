@@ -8,6 +8,13 @@ using UnityEngine;
 
 //Pool 参考 https://qiita.com/KeichiMizutani/items/ca46a40de02e87b3d8a8
 
+public enum StageState
+{
+    CononFire,
+    EnemyMove
+}
+
+
 public class LevelStatelManager : MonoBehaviour
 {
     [SerializeField] private LevelSetting _levelSetting = default;
@@ -42,6 +49,8 @@ public class LevelStatelManager : MonoBehaviour
         _playerManager.SubscribeStart();
         _uiManager.SubscribeStart();
 
+
+        //更新処理
         this.UpdateAsObservable()
             .Where(_ => _gameLoop)
             .Subscribe(_ =>
