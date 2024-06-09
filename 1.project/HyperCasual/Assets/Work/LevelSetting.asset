@@ -18,7 +18,7 @@ MonoBehaviour:
     _playerVelocity: 10
     _weaponPrefab: {fileID: 1242846716139423444, guid: dbd3bf408b17fee4184b6bbcaecd459f,
       type: 3}
-    _initWeaponNum: 4
+    _initWeaponNum: 6
     _weaponVelocity: 20
     _weaponIntervalSecond: 0.05
     _weaponUIPrefab: {fileID: 7732935956470602516, guid: 921eb1e7eda97a540a0e812a504fd370,

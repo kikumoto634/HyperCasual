@@ -9,8 +9,12 @@ public class WeaponParam : ActorParam
 
 public class Weapon : Actor
 {
+    
+
     internal WeaponParam _param;
     private Rigidbody2D _rb = default;
+
+    
 
     public override void InitializeStart(LevelSetting levelSetting)
     {

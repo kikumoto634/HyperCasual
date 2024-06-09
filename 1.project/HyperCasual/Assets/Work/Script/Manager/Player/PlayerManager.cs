@@ -1,6 +1,8 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UniRx;
 
 public class PlayerManager : BaseMonoManager
 {
@@ -35,6 +37,13 @@ public class PlayerManager : BaseMonoManager
     {
         base.SubscribeStart();
         _weaponManager.SubscribeStart();
+
+        _weaponManager.Weapons.ObserveAdd()
+            .Subscribe(obj =>
+            {
+                ActorAdd(obj.Value);
+            })
+            .AddTo(this);
 
         foreach (var actor in _playersActor)
         {

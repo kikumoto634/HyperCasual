@@ -168,10 +168,10 @@ GameObject:
   m_Component:
   - component: {fileID: 146532899}
   - component: {fileID: 146532901}
-  - component: {fileID: 146532900}
+  - component: {fileID: 146532902}
   m_Layer: 5
   m_Name: Area (9)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,7 +196,15 @@ RectTransform:
   m_AnchoredPosition: {x: 110, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &146532900
+--- !u!222 &146532901
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146532898}
+  m_CullTransparentMesh: 1
+--- !u!114 &146532902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,14 +234,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &146532901
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 146532898}
-  m_CullTransparentMesh: 1
 --- !u!1 &193236303
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,10 +358,10 @@ GameObject:
   m_Component:
   - component: {fileID: 306734919}
   - component: {fileID: 306734921}
-  - component: {fileID: 306734920}
+  - component: {fileID: 306734922}
   m_Layer: 5
   m_Name: Area (5)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,7 +386,15 @@ RectTransform:
   m_AnchoredPosition: {x: 220, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &306734920
+--- !u!222 &306734921
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306734918}
+  m_CullTransparentMesh: 1
+--- !u!114 &306734922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -416,14 +424,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &306734921
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306734918}
-  m_CullTransparentMesh: 1
 --- !u!1 &315805216
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,10 +848,10 @@ GameObject:
   m_Component:
   - component: {fileID: 423042279}
   - component: {fileID: 423042281}
-  - component: {fileID: 423042280}
+  - component: {fileID: 423042282}
   m_Layer: 5
   m_Name: Area (3)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -876,7 +876,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &423042280
+--- !u!222 &423042281
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423042278}
+  m_CullTransparentMesh: 1
+--- !u!114 &423042282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -906,14 +914,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &423042281
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423042278}
-  m_CullTransparentMesh: 1
 --- !u!1 &570112155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,10 +1234,10 @@ GameObject:
   m_Component:
   - component: {fileID: 645322725}
   - component: {fileID: 645322727}
-  - component: {fileID: 645322726}
+  - component: {fileID: 645322728}
   m_Layer: 5
   m_Name: Area (1)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1262,7 +1262,15 @@ RectTransform:
   m_AnchoredPosition: {x: -220, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &645322726
+--- !u!222 &645322727
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645322724}
+  m_CullTransparentMesh: 1
+--- !u!114 &645322728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1292,14 +1300,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &645322727
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 645322724}
-  m_CullTransparentMesh: 1
 --- !u!1 &657556104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.06140983, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1668,7 +1668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.06140983, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1702,10 +1702,10 @@ GameObject:
   m_Component:
   - component: {fileID: 939077216}
   - component: {fileID: 939077218}
-  - component: {fileID: 939077217}
+  - component: {fileID: 939077219}
   m_Layer: 5
   m_Name: Area (7)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1730,7 +1730,15 @@ RectTransform:
   m_AnchoredPosition: {x: -110, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &939077217
+--- !u!222 &939077218
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939077215}
+  m_CullTransparentMesh: 1
+--- !u!114 &939077219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1760,14 +1768,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &939077218
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939077215}
-  m_CullTransparentMesh: 1
 --- !u!1 &1051949186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,10 +1890,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1165324081}
   - component: {fileID: 1165324083}
-  - component: {fileID: 1165324082}
+  - component: {fileID: 1165324084}
   m_Layer: 5
   m_Name: Area (6)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1918,7 +1918,15 @@ RectTransform:
   m_AnchoredPosition: {x: -220, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1165324082
+--- !u!222 &1165324083
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165324080}
+  m_CullTransparentMesh: 1
+--- !u!114 &1165324084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1948,14 +1956,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1165324083
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165324080}
-  m_CullTransparentMesh: 1
 --- !u!1 &1231123514
 GameObject:
   m_ObjectHideFlags: 0
@@ -2078,10 +2078,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1240949050}
   - component: {fileID: 1240949052}
-  - component: {fileID: 1240949051}
+  - component: {fileID: 1240949053}
   m_Layer: 5
   m_Name: Area (10)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2106,7 +2106,15 @@ RectTransform:
   m_AnchoredPosition: {x: 220, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1240949051
+--- !u!222 &1240949052
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240949049}
+  m_CullTransparentMesh: 1
+--- !u!114 &1240949053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2136,14 +2144,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1240949052
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240949049}
-  m_CullTransparentMesh: 1
 --- !u!1 &1289140948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,7 +2258,7 @@ GameObject:
   - component: {fileID: 1403881546}
   m_Layer: 5
   m_Name: StorageArea
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2307,7 +2307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2359,10 +2359,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1485156176}
   - component: {fileID: 1485156178}
-  - component: {fileID: 1485156177}
+  - component: {fileID: 1485156179}
   m_Layer: 5
   m_Name: Area (8)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2387,7 +2387,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1485156177
+--- !u!222 &1485156178
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485156175}
+  m_CullTransparentMesh: 1
+--- !u!114 &1485156179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2417,14 +2425,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1485156178
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1485156175}
-  m_CullTransparentMesh: 1
 --- !u!1 &1496842952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,7 +2477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.06140983, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2649,10 +2649,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1740787096}
   - component: {fileID: 1740787098}
-  - component: {fileID: 1740787097}
+  - component: {fileID: 1740787099}
   m_Layer: 5
   m_Name: Area (4)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2677,7 +2677,15 @@ RectTransform:
   m_AnchoredPosition: {x: 110, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1740787097
+--- !u!222 &1740787098
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740787095}
+  m_CullTransparentMesh: 1
+--- !u!114 &1740787099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2707,14 +2715,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1740787098
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740787095}
-  m_CullTransparentMesh: 1
 --- !u!1 &1744097082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,8 +2806,8 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_Camera: {fileID: 716296632}
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -3147,7 +3147,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 716296632}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -3289,10 +3289,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2002123808}
   - component: {fileID: 2002123810}
-  - component: {fileID: 2002123809}
+  - component: {fileID: 2002123811}
   m_Layer: 5
   m_Name: Area (2)
-  m_TagString: Untagged
+  m_TagString: DroppableField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3317,7 +3317,15 @@ RectTransform:
   m_AnchoredPosition: {x: -110, y: 60}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2002123809
+--- !u!222 &2002123810
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002123807}
+  m_CullTransparentMesh: 1
+--- !u!114 &2002123811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3347,14 +3355,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &2002123810
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002123807}
-  m_CullTransparentMesh: 1
 --- !u!1 &2017807335
 GameObject:
   m_ObjectHideFlags: 0

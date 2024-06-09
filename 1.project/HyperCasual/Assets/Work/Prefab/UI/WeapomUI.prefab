@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3678937643302300663}
   - component: {fileID: 8008675203291897269}
   - component: {fileID: 7732935956470602516}
+  - component: {fileID: -1801649618668312590}
   m_Layer: 5
   m_Name: WeapomUI
   m_TagString: Untagged
@@ -87,5 +88,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9399e3f1eb4d5694abda3d412355b0b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1801649618668312590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407943884249537856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259a5da4a8ea4f44ab916ef25ee3dbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

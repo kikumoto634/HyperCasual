@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponUIParam : ActorParam
 {
@@ -8,6 +9,7 @@ public class WeaponUIParam : ActorParam
 
 public class WeaponUI : Actor
 {
+
     internal WeaponUIParam _param;
 
     public override void InitializeStart(LevelSetting levelSetting)

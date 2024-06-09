@@ -20,6 +20,8 @@ public class WeaponUIManager : BaseMonoManager
 
     //武器アイコン
     private List<Actor> _weaponUIs = new List<Actor>();
+    //追加予定アイコン
+    private Queue<Actor> _weaponUIsCreateQueue = new Queue<Actor>();
 
     private WeaponUIParam _param = new WeaponUIParam();
     private WeaponUISpawner _spawner = new WeaponUISpawner();
@@ -45,10 +47,25 @@ public class WeaponUIManager : BaseMonoManager
     {
         base.SubscribeStart();
 
+        _playerManager.WeaponManager.Weapons.ObserveAdd()
+            .Subscribe(_ =>
+            {
+                CreateQueue();
+            })
+            .AddTo(this);
+
         //移動開始
         _playerManager.WeaponManager.IsAttack
             .Subscribe(flag =>
             {
+                //追加用
+                foreach(var actor in _weaponUIsCreateQueue)
+                {
+                    _weaponUIs.Add(actor);
+                }
+                _weaponUIsCreateQueue.Clear();
+
+                //開始
                 if(flag)MovementStart();
             })
             .AddTo(this);
@@ -68,19 +85,35 @@ public class WeaponUIManager : BaseMonoManager
     {
         WeaponUI weaponActor = (WeaponUI)_spawner.Spawn(_levelSetting._playersInfo._weaponUIPrefab, _param);
         weaponActor.transform.parent = _weaponUICollect.transform;
+        weaponActor.transform.localScale = new Vector3(1, 1, 1);
 
         _weaponUIs.Add(weaponActor);
     }
+    //追加時生成
+    public void CreateQueue()
+    {
+        WeaponUI weaponActor = (WeaponUI)_spawner.Spawn(_levelSetting._playersInfo._weaponUIPrefab, _param);
+        weaponActor.transform.parent = _weaponUICollect.transform;
+        weaponActor.transform.localScale = new Vector3(1, 1, 1);
+        RePositionQueue(weaponActor);
+
+        _weaponUIsCreateQueue.Enqueue(weaponActor);
+        weaponActor.InitializeStart(_levelSetting);
+        weaponActor.SubscribeStart();
+    }
 
     //場所の位置設定
-    public void RePosition()
+    public void RePosition(int index = 0)
     {
-        int index = 0;
-        foreach(var ui in _weaponUIs)
+        for (int i = index; i < _weaponUIs.Count; i++)
         {
-            ui.transform.position = _iconLocations[index].transform.position;
-            index++;
+            _weaponUIs[i].transform.position = _iconLocations[i].transform.position;
         }
+    }
+
+    public void RePositionQueue(WeaponUI actor)
+    {
+        actor.transform.position = _iconLocations[_weaponUIs.Count + _weaponUIsCreateQueue.Count].transform.position;
     }
 
     //移動開始

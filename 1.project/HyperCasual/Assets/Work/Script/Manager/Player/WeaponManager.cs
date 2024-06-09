@@ -34,6 +34,8 @@ public class WeaponManager : BaseMonoManager
 
 
     private ReactiveCollection<Weapon> _weaponActors = new ReactiveCollection<Weapon>();
+    //’Ç‰Á—\’èƒAƒCƒRƒ“
+    private Queue<Weapon> _weaponsCreateQueue = new Queue<Weapon>();
 
     private WeaponParam _param = new WeaponParam();
     private WeaponSpawner _spawner = new WeaponSpawner();
@@ -74,6 +76,24 @@ public class WeaponManager : BaseMonoManager
     {
         base.UpdateProcess();
 
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_weaponActors.Count < 10)
+            {
+                 CreateQueue();
+             }
+        }
+
+        if (!_isFire.Value)
+        {
+            foreach(var actor in _weaponsCreateQueue)
+            {
+                _weaponActors.Add(actor);
+            }
+            _weaponsCreateQueue.Clear();
+        }
+
         //UŒ‚’†
         if (_isFire.Value && _weaponActors.All(actor => !actor.IsActive.Value))
         {
@@ -94,6 +114,16 @@ public class WeaponManager : BaseMonoManager
         weaponActor.transform.parent = _weaponCollect.transform;
 
         _weaponActors.Add(weaponActor);
+    }
+    public void CreateQueue()
+    {
+        _param.Velocity = _levelSetting._playersInfo._weaponVelocity;
+        Weapon weaponActor = (Weapon)_spawner.Spawn(_levelSetting._playersInfo._weaponPrefab, _param);
+        weaponActor.transform.parent = _weaponCollect.transform;
+
+        _weaponsCreateQueue.Enqueue(weaponActor);
+        weaponActor.InitializeStart(_levelSetting);
+        weaponActor.SubscribeStart();
     }
     public async void Fire()
     {
